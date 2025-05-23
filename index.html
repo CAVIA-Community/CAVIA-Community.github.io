@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAVIA - Aviation, Vtuber and Bis Mania Fans Community</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&family=JetBrains+Mono&display=swap">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #ecf0f1;
+            --background-color: #1a1a1a;
+            --card-bg: #2c2c2c;
+            --border-color: #444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+            background-image: url("images/Percobaan.png");
+            background-attachment: fixed;
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+        
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 100px;
+            padding: 60px 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: var(--secondary-color);
+        }
+        
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .date {
+            font-family: 'JetBrains Mono', monospace;
+            color: #b5c1ad;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        /* Articles Section */
+        .articles-section {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background: var(--accent-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .article-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .article-content {
+            padding: 20px;
+        }
+        
+        .article-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .article-links {
+            margin-top: 15px;
+        }
+        
+        .article-links a {
+            display: block;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .article-links a:last-child {
+            border-bottom: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <img src="images/Logo Cavia.png" alt="CAVIA Logo" class="logo">
+                <img src="images/Cavia.png" alt="CAVIA Text" class="logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Aviation</a></li>
+                    <li><a href="">Vtuber</a></li>
+                    <li><a href="">Bis Mania</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Social Media</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>CAVIA Community</h1>
+            <p>Cah Aviation, Vtuber, Bis Mania</p>
+            <span class="date">29 April 2025</span>
+            <p>Welcome to the CAVIA community - a place for fans of Aviation, Vtubers, and Bus Enthusiasts (or we can call it Bis Mania) to connect and share our passions. Whether you're interested in aircraft, vtuber, or maybe Bus, you'll find a new people and make a new friend with the same passions as you here.</p>
+        </section>
+
+        <section class="articles-section">
+            <h2 class="section-title">Explore Our Community</h2>
+            
+            <div class="articles-grid">
+                <!-- Aviation Card -->
+                <article class="article-card">
+                    <img src="images/Etihad Airways Manchester United.jpg" alt="Etihad Airways Manchester United Diecast" class="article-image">
+                    <div class="article-content">
+                        <h3>Aviation</h3>
+                        <p>Discover the joy of loving the world of aircraft, airlines, and aviation technology.</p>
+                        <div class="article-links">
+                            <a href="">A Diecast of Etihad Airways 'Manchester United Edition'</a>
+                            <a href="">Introduction to Aviation and the type of Airplane</a>
+                            <a href="">Is there a simulation about planes?</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Bis Mania Card -->
+                <article class="article-card">
+                    <img src="images/ets2_20250424_195522_00.png" alt="Bus in ETS 2 game" class="article-image">
+                    <div class="article-content">
+                        <h3>Bis Mania</h3>
+                        <p>For enthusiasts of bus transportation and related simulations to bus.</p>
+                        <div class="article-links">
+                            <a href="">An introduction to bus transportation</a>
+                            <a href="">There is a fans of bus named Bis Mania</a>
+                            <a href="">Euro Truck Simulator 2 : a game that we can mod into having a bus</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Vtuber Card -->
+                <article class="article-card">
+                    <img src="images/Hololive.jpg" alt="Hololive Vtubers" class="article-image">
+                    <div class="article-content">
+                        <h3>Vtuber</h3>
+                        <p>Explore the world of vtuber and their communities.</p>
+                        <div class="article-links">
+                            <a href="">An introduction to Vtuber</a>
+                            <a href="">Two Type of Vtuber</a>
+                            <a href="">All of Hololive ID Talents</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="">Legal Information</a>
+                <a href="">Privacy Policy</a>
+                <a href="">Contact Us</a>
+            </div>
+            <p class="copyright">Copyright &copy; 2025 CAVIA Community. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

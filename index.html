@@ -263,6 +263,32 @@
                 flex-direction: column;
                 gap: 10px;
             }
+        .auth-buttons {
+        display: flex;
+        gap: 10px;
+        margin-left: 20px;
+    }
+    
+    .btn-login {
+        padding: 8px 16px;
+        background: transparent;
+        border: 1px solid var(--secondary-color);
+        color: var(--secondary-color);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-login:hover {
+        background: var(--secondary-color);
+        color: white;
+    }
+    
+    .user-greeting {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.9rem;
+        color: var(--secondary-color);
+    }
         }
     </style>
 </head>
@@ -274,15 +300,24 @@
                 <img src="Cavia.png" alt="CAVIA Text" class="logo">
             </div>
             <nav>
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Aviation</a></li>
-                    <li><a href="">Vtuber</a></li>
-                    <li><a href="">Bis Mania</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Social Media</a></li>
-                </ul>
-            </nav>
+    <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Aviation</a></li>
+        <li><a href="">Vtuber</a></li>
+        <li><a href="">Bis Mania</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Social Media</a></li>
+        <li>
+            <div class="auth-buttons" id="authButtons">
+                <button class="btn-login" id="loginBtn">Login</button>
+            </div>
+            <div id="userSection" style="display: none;">
+                <span class="user-greeting" id="userGreeting"></span>
+                <button class="btn-login" id="logoutBtn">Logout</button>
+            </div>
+        </li>
+    </ul>
+</nav>
         </div>
     </header>
 
@@ -353,5 +388,55 @@
             <p class="copyright">Copyright &copy; 2025 CAVIA Community. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+    // =============================================
+    // Demo Auth System (No Firebase - For GitHub Pages)
+    // =============================================
+    const users = [
+        { email: "user@example.com", password: "demo123", username: "DemoUser" }
+    ];
+
+    // DOM Elements
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const authButtons = document.getElementById('authButtons');
+    const userSection = document.getElementById('userSection');
+    const userGreeting = document.getElementById('userGreeting');
+
+    // Check auth state
+    function checkAuth() {
+        const user = JSON.parse(localStorage.getItem('cavia_user'));
+        if (user) {
+            authButtons.style.display = 'none';
+            userSection.style.display = 'block';
+            userGreeting.textContent = `Hi, ${user.username}`;
+        }
+    }
+
+    // Login (Demo)
+    loginBtn?.addEventListener('click', () => {
+        const email = prompt("Enter email (demo: user@example.com)");
+        const password = prompt("Enter password (demo: demo123)");
+        
+        const user = users.find(u => u.email === email && u.password === password);
+        if (user) {
+            localStorage.setItem('cavia_user', JSON.stringify(user));
+            checkAuth();
+            alert("Login successful!");
+        } else {
+            alert("Invalid credentials. Try: user@example.com / demo123");
+        }
+    });
+
+    // Logout
+    logoutBtn?.addEventListener('click', () => {
+        localStorage.removeItem('cavia_user');
+        authButtons.style.display = 'block';
+        userSection.style.display = 'none';
+    });
+
+    // Initialize
+    checkAuth();
+</script>
 </body>
 </html>

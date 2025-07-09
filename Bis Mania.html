@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bis Mania - CAVIA Community</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&family=JetBrains+Mono&display=swap">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #ecf0f1;
+            --background-color: #1a1a1a;
+            --card-bg: #2c2c2c;
+            --border-color: #444;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+            margin: 0;
+            background-image: url("images/Percobaan.png");
+            background-attachment: fixed;
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav a {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-top: 100px;
+            padding: 40px 0;
+        }
+        
+        /* Section Styles */
+        .section {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--secondary-color);
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin: 10px 0;
+            color: var(--secondary-color);
+        }
+        
+        .card-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .card-link:hover {
+            background: var(--accent-color);
+        }
+        
+        /* Table Styles */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .spec-table th, .spec-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .spec-table th {
+            background: rgba(0, 0, 0, 0.3);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <img src="images/Logo Cavia.png" alt="CAVIA Logo" class="logo">
+                <img src="images/Cavia.png" alt="CAVIA Text" class="logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aviation.html">Aviation</a></li>
+                    <li><a href="vtuber.html">Vtuber</a></li>
+                    <li><a href="bismania.html" class="active">Bis Mania</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <!-- 3D Artist Section -->
+        <section class="section">
+            <h2 class="section-title">3D Artist & Model Bis</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title">ADV Modding</h3>
+                    <p>Spesialis modeling bus untuk game simulator dengan detail tinggi</p>
+                    <a href="https://ets2.lt/en/category/bus-mods/" target="_blank" class="card-link">Portofolio</a>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title">Heavy Vehicles Turkey</h3>
+                    <p>Tim pembuat mod bus ETS2 seperti Marcopolo Viaggio dan Mercedes Travego</p>
+                    <a href="https://ets2.lt/en/category/bus-mods/" target="_blank" class="card-link">Karya</a>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title">Freelance 3D Artist</h3>
+                    <p>Layanan custom modeling 3D untuk kebutuhan visualisasi bus</p>
+                    <a href="https://id.jobstreet.com/3d-artist-jobs" target="_blank" class="card-link">Cari Artist</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ETS2 Mod Section -->
+        <section class="section">
+            <h2 class="section-title">Mod Bis Euro Truck Simulator 2</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title">Paket Mod Indonesia</h3>
+                    <p>Mod map Indonesia + bus lokal dengan harga Rp240.000</p>
+                    <a href="https://www.tokopedia.com/find/mod-euro-truck-simulator-2" target="_blank" class="card-link">Beli di Tokopedia</a>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title">Marcopolo Viaggio 1050 G7</h3>
+                    <p>Mod bus detail dengan berbagai konfigurasi chassis</p>
+                    <a href="https://ets2.lt/en/category/bus-mods/" target="_blank" class="card-link">Download</a>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title">Mercedes-Benz Travego</h3>
+                    <p>Bus mewah dengan interior premium untuk ETS2</p>
+                    <a href="https://ets2.lt/en/category/bus-mods/" target="_blank" class="card-link">Detail</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chassis Section -->
+        <section class="section">
+            <h2 class="section-title">Spesifikasi Chassis Bus</h2>
+            
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Merek</th>
+                        <th>Model</th>
+                        <th>Harga</th>
+                        <th>Spesifikasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hino</td>
+                        <td>AK240</td>
+                        <td>Rp758 juta</td>
+                        <td>7.684 cc, 236 HP, Euro 4</td>
+                    </tr>
+                    <tr>
+                        <td>Mercedes-Benz</td>
+                        <td>OH 1626</td>
+                        <td>Rp1,2 miliar</td>
+                        <td>6.374 cc, 260 HP, transmisi ZF</td>
+                    </tr>
+                    <tr>
+                        <td>Scania</td>
+                        <td>K360IB</td>
+                        <td>Rp1,4 miliar</td>
+                        <td>13.000 cc, 360 HP, suspensi udara</td>
+                    </tr>
+                    <tr>
+                        <td>Volvo</td>
+                        <td>B11R</td>
+                        <td>Rp1,8 miliar</td>
+                        <td>11.000 cc, Euro 5, kecepatan 180 km/jam</td>
+                    </tr>
+                    <tr>
+                        <td>MAN</td>
+                        <td>R37</td>
+                        <td>Rp2 miliar</td>
+                        <td>12.500 cc, kecepatan 200 km/jam</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Karoseri Section -->
+        <section class="section">
+            <h2 class="section-title">Karoseri Terkenal di Indonesia</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title">Adiputro</h3>
+                    <p>Pionir bus eksekutif dengan standar internasional</p>
+                    <p>Lokasi: Malang</p>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title">Laksana</h3>
+                    <p>Produsen bus dengan ekspor ke Fiji dan negara lain</p>
+                    <p>Produk: Proteus, Discovery</p>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title">Tentrem</h3>
+                    <p>Karoseri pertama dengan sertifikasi Mercedes-Benz</p>
+                    <p>Model: Inspiro, Galaxy, Jupiter</p>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title">New Armada</h3>
+                    <p>Spesialis bus double decker dan super high deck</p>
+                    <p>Ekspor ke Kenya, Bangladesh</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tipe Bus Section -->
+        <section class="section">
+            <h2 class="section-title">Tipe-Tipe Bus</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title">Ultra High Deck</h3>
+                    <p>Tinggi atap >3,8m, 
